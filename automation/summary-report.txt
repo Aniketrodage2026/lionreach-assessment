@@ -1,0 +1,25 @@
+LIONREACH MEDIA - LEAD CLEANING REPORT
+Total Processed: 37
+Cleaned Leads: 26
+Removed: 11 (Duplicates: 5, Personal: 4, Invalid: 1, Test: 1)
+
+Countries:
+ - Australia: 5
+ - Japan: 7
+ - Malaysia: 5
+ - India: 3
+ - Singapore: 5
+ - Indonesia: 1
+
+Sources:
+ - linkedin: 12
+ - direct: 9
+ - google: 2
+ - newsletter: 3
+
+Industries:
+ - FinTech: 4
+ - Enterprise IT: 15
+ - SaaS Platform: 2
+ - Data Analytics: 3
+ - Cloud Infrastructure: 2
