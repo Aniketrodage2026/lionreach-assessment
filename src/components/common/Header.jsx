@@ -1,15 +1,28 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import logoNeonWhite from '../../assets/logos/logo-neon-white.png';
 import { ScrollReveal } from './ScrollReveal';
-import { handleFaqClick, handleAuditFormClick } from '../../utils/scroll';
+import { handleFaqClick, scrollToSection } from '../../utils/scroll';
 
 export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const isActive = (path) => location.pathname === path;
+
+  const handleHeaderAuditClick = (e) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+
+    if (location.pathname !== '/') {
+      navigate('/#audit-form');
+      return;
+    }
+
+    window.requestAnimationFrame(() => scrollToSection('audit-form'));
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-[#041221]/90 backdrop-blur-md border-b border-white/10">
@@ -67,7 +80,7 @@ export const Header = () => {
           <div className="hidden md:flex items-center gap-4">
             <a
               href="#audit-form"
-              onClick={handleAuditFormClick}
+              onClick={handleHeaderAuditClick}
               className="inline-flex items-center gap-2 bg-[#C8FF00] text-[#041221] font-semibold px-5 py-2.5 rounded-full hover:bg-[#b0e600] hover:shadow-lg hover:shadow-[#C8FF00]/25 transition-all transform hover:-translate-y-0.5 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#C8FF00] focus:ring-offset-2 focus:ring-offset-[#041221]"
             >
               <span>Get Free Audit</span>
@@ -125,11 +138,7 @@ export const Header = () => {
             </a>
             <a
               href="#audit-form"
-              onClick={(e) => {
-                e.preventDefault();
-                setMobileMenuOpen(false);
-                handleAuditFormClick(e);
-              }}
+              onClick={handleHeaderAuditClick}
               className="w-full flex items-center justify-center gap-2 bg-[#C8FF00] text-[#041221] font-semibold px-4 py-3 rounded-xl mt-4 hover:bg-[#b0e600] transition-all transform hover:-translate-y-0.5 active:scale-95"
             >
               <span>Claim Free B2B Audit</span>
