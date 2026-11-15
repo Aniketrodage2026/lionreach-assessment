@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowRight } from 'lucide-react';
-import logoNeonWhite from '../../../../Assessment_for_Web_Developer_-_Nov_2026 (1)/LRM_Logo_Neon & White.png';
+import logoNeonWhite from '../../assets/logos/logo-neon-white.png';
 import { ScrollReveal } from './ScrollReveal';
 import { handleFaqClick, handleAuditFormClick } from '../../utils/scroll';
 
